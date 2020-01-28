@@ -17,6 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
+
+        <activity android:name=".week2.toolbar.ToolbarTestActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

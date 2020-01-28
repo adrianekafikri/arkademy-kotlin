@@ -10,16 +10,17 @@ import androidx.appcompat.app.AppCompatActivity
 /**
  * Created by adrianfikri on 2020-01-21.
  */
-class SecondActivity : AppCompatActivity() {
+class SecondActivity : BaseActivity() {
 
     companion object {
         const val EXTRA_STRING = "extraString"
         const val EXTRA_BACK = "extraBack"
     }
 
+    override fun getLayoutId(): Int = R.layout.activity_second
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second)
 
         val data = intent.getStringExtra(EXTRA_STRING)
         val btnShowData = findViewById<Button>(R.id.bt_show_data)
@@ -36,5 +37,6 @@ class SecondActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK, backIntent)
             finish()
         }
+
     }
 }
