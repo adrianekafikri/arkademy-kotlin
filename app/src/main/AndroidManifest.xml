@@ -20,6 +20,13 @@
 
         <activity android:name=".week2.toolbar.ToolbarTestActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".week2.databinding.DataBindingTestActivity" />
+
+        <activity android:name=".week3.LearnDialogActivity" />
+
+        <activity android:name=".week3.LearnTabActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

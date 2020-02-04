@@ -1,48 +1,59 @@
 package com.arkademy.arkademytraining
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.TextView
+import com.arkademy.arkademytraining.week2.databinding.DataBindingTestActivity
+import com.arkademy.arkademytraining.week2.fragment.AFragment
+import com.arkademy.arkademytraining.week2.fragment.BFragment
 import com.arkademy.arkademytraining.week2.oop.Iphone
 import com.arkademy.arkademytraining.week2.oop.Person
 import com.arkademy.arkademytraining.week2.oop.Samsung
 import com.arkademy.arkademytraining.week2.toolbar.ToolbarTestActivity
+import com.arkademy.arkademytraining.week3.LearnDialogActivity
+import com.arkademy.arkademytraining.week3.LearnTabActivity
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), AFragment.AListener {
 
-    lateinit var tvReceiveResult: TextView
+    private lateinit var tvInfoFragment: TextView
 
     override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        tvReceiveResult = findViewById(R.id.tv_receive_result)
-        val vRed = findViewById<View>(R.id.v_red)
-        vRed.setOnClickListener {
-            /*val dataString = "Arkademy Training"
+        val btnSwitchA = findViewById<Button>(R.id.btn_switch_a)
+        val btnSwitchB = findViewById<Button>(R.id.btn_switch_b)
+        tvInfoFragment = findViewById(R.id.tv_info_fragment)
 
-            val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra(SecondActivity.EXTRA_STRING, dataString)
-            startActivityForResult(intent, 123)*/
+        btnSwitchA.setOnClickListener {
+            val aFragment = AFragment(this)
+            val bundle = Bundle()
+            bundle.putString(AFragment.EXTRA_INFO, "ARGUMENT A")
+            aFragment.arguments = bundle
+            supportFragmentManager.beginTransaction().replace(R.id.fl_container, aFragment).commit()
+        }
 
-            val intent = Intent(this, ToolbarTestActivity::class.java)
+        btnSwitchB.setOnClickListener {
+            /*val bFragment = BFragment(object : BFragment.BListener {
+                override fun onChangeBClicked(info: String) {
+                    tvInfoFragment.text = info
+                }
+            })
+            supportFragmentManager.beginTransaction().replace(R.id.fl_container, bFragment).commit()*/
+            val intent = Intent(this, LearnTabActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == 123 && resultCode == Activity.RESULT_OK) {
-            tvReceiveResult.text = data?.getStringExtra(SecondActivity.EXTRA_BACK) ?: "Arkademy"
-        }
-
+    override fun onChangeAClicked() {
+        tvInfoFragment.text = "A"
     }
 }
