@@ -9,7 +9,7 @@ import com.arkademy.arkademytraining.week2.fragment.BFragment
 /**
  * Created by adrianfikri on 2020-02-04.
  */
-class LearnTabPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
+class LearnTabPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     val fragments = arrayOf(AFragment(null), BFragment(null))
 

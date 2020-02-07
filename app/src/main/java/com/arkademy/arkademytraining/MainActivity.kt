@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.preference.PreferenceManager
 import com.arkademy.arkademytraining.week2.databinding.DataBindingTestActivity
 import com.arkademy.arkademytraining.week2.fragment.AFragment
 import com.arkademy.arkademytraining.week2.fragment.BFragment
@@ -17,8 +18,7 @@ import com.arkademy.arkademytraining.week2.oop.Iphone
 import com.arkademy.arkademytraining.week2.oop.Person
 import com.arkademy.arkademytraining.week2.oop.Samsung
 import com.arkademy.arkademytraining.week2.toolbar.ToolbarTestActivity
-import com.arkademy.arkademytraining.week3.LearnDialogActivity
-import com.arkademy.arkademytraining.week3.LearnTabActivity
+import com.arkademy.arkademytraining.week3.*
 
 class MainActivity : BaseActivity(), AFragment.AListener {
 
@@ -48,7 +48,7 @@ class MainActivity : BaseActivity(), AFragment.AListener {
                 }
             })
             supportFragmentManager.beginTransaction().replace(R.id.fl_container, bFragment).commit()*/
-            val intent = Intent(this, LearnTabActivity::class.java)
+            val intent = Intent(this, LearnRecyclerViewActivity::class.java)
             startActivity(intent)
         }
     }

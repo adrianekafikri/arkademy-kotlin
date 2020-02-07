@@ -27,6 +27,12 @@
 
         <activity android:name=".week3.LearnTabActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".week3.LearnSharedPreferenceActivity" />
+
+        <activity android:name=".week3.LearnWebViewActivity" />
+
+        <activity android:name=".week3.LearnRecyclerViewActivity" />
     </application>
 
 </manifest>
