@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.arkademy.arkademytraining">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -33,6 +35,10 @@
         <activity android:name=".week3.LearnWebViewActivity" />
 
         <activity android:name=".week3.LearnRecyclerViewActivity" />
+
+        <activity android:name=".week4.WordListActivity" />
+
+        <activity android:name=".week4.AddWordActivity" />
     </application>
 
 </manifest>

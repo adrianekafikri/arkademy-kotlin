@@ -19,6 +19,7 @@ import com.arkademy.arkademytraining.week2.oop.Person
 import com.arkademy.arkademytraining.week2.oop.Samsung
 import com.arkademy.arkademytraining.week2.toolbar.ToolbarTestActivity
 import com.arkademy.arkademytraining.week3.*
+import com.arkademy.arkademytraining.week4.WordListActivity
 
 class MainActivity : BaseActivity(), AFragment.AListener {
 
@@ -48,7 +49,7 @@ class MainActivity : BaseActivity(), AFragment.AListener {
                 }
             })
             supportFragmentManager.beginTransaction().replace(R.id.fl_container, bFragment).commit()*/
-            val intent = Intent(this, LearnRecyclerViewActivity::class.java)
+            val intent = Intent(this, WordListActivity::class.java)
             startActivity(intent)
         }
     }
