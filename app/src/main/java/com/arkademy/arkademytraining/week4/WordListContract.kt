@@ -10,6 +10,8 @@ interface WordListContract {
     }
 
     interface Presenter {
+        fun bindToView(view: View)
+        fun unbind()
         fun populateList()
     }
 }

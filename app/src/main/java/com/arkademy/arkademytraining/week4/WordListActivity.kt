@@ -26,8 +26,7 @@ class WordListActivity : AppCompatActivity(), WordListContract.View {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_word_list)
         coroutineScope = CoroutineScope(Job() + Dispatchers.IO)
-        presenter = WordListPresenter(view = this,
-            coroutineScope = coroutineScope,
+        presenter = WordListPresenter(coroutineScope = coroutineScope,
             database = WordRoomDatabase.getWordDatabase(this))
 
         binding.rvWords.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -37,8 +36,17 @@ class WordListActivity : AppCompatActivity(), WordListContract.View {
             val intent = Intent(this, AddWordActivity::class.java)
             startActivityForResult(intent, ADD_WORD_REQUEST_CODE)
         }
+    }
 
+    override fun onStart() {
+        super.onStart()
+        presenter?.bindToView(this)
         presenter?.populateList()
+    }
+
+    override fun onStop() {
+        presenter?.unbind()
+        super.onStop()
     }
 
     override fun updateItems(list: List<WordRoomEntity>) {

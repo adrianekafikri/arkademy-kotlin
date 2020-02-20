@@ -22,6 +22,7 @@ import com.arkademy.arkademytraining.week3.*
 import com.arkademy.arkademytraining.week4.LearnRetrofitActivity
 import com.arkademy.arkademytraining.week4.WordListActivity
 import com.arkademy.arkademytraining.week5.MvpActivity
+import com.arkademy.arkademytraining.week5.MvvmActivity
 
 class MainActivity : BaseActivity(), AFragment.AListener {
 
@@ -51,7 +52,7 @@ class MainActivity : BaseActivity(), AFragment.AListener {
                 }
             })
             supportFragmentManager.beginTransaction().replace(R.id.fl_container, bFragment).commit()*/
-            val intent = Intent(this, WordListActivity::class.java)
+            val intent = Intent(this, MvvmActivity::class.java)
             startActivity(intent)
         }
     }

@@ -43,6 +43,8 @@
         <activity android:name=".week4.LearnRetrofitActivity" />
 
         <activity android:name=".week5.MvpActivity" />
+
+        <activity android:name=".week5.MvvmActivity" />
     </application>
 
 </manifest>
